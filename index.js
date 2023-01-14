@@ -43,6 +43,16 @@ async function main() {
         );
     }
   });
+  client.on("message_create", async (message) => {
+    //Any message received with first word # will be sent to the Chat GPT.
+    if (message.fromMe && message.body.startsWith("#")) {
+      await sendMessageToGPT(message.body)
+        .then((result) => message.reply(result))
+        .catch(() =>
+          message.reply("Something went wrong❗️, please try again later.⏰")
+        );
+    }
+  });
   //Initialize
   client.initialize();
   //--------------------Whatsapp configuration Ends--------------------//
