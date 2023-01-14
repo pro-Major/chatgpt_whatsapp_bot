@@ -12,7 +12,7 @@ async function main() {
   const api = new ChatGPTAPIBrowser({
     email: process.env.OPEN_AI_EMAIL,
     password: process.env.OPEN_AI_PASSWORD,
-    isGoogleLogin: true,
+    isGoogleLogin: true, //set false if no need to login with google.
     debug: false,
     minimize: false,
   });
